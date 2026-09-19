@@ -98,7 +98,9 @@ export function InsightsGrid({ heading, description, posts }: InsightsGridProps)
 
         {/* 3 Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {displayPosts.slice(0, 3).map((post, index) => (
+          {displayPosts.slice(0, 3).map((post, index) => {
+            const postSlug = typeof post.slug === 'string' ? post.slug : (post.slug as { current?: string })?.current || ''
+            return (
             <motion.article
               key={post._id}
               initial={shouldReduce ? false : { opacity: 0, y: 16 }}
@@ -121,7 +123,7 @@ export function InsightsGrid({ heading, description, posts }: InsightsGridProps)
 
                 {/* Post Title */}
                 <h3 className="text-xl font-bold text-[#111827] mb-3 font-display leading-snug group-hover:text-[#004771] transition-colors">
-                  <Link href={`/insights/${post.slug?.current || post.slug}`}>
+                  <Link href={`/insights/${postSlug}`}>
                     {post.title}
                   </Link>
                 </h3>
@@ -145,14 +147,15 @@ export function InsightsGrid({ heading, description, posts }: InsightsGridProps)
                 </div>
 
                 <Link
-                  href={`/insights/${post.slug?.current || post.slug}`}
+                  href={`/insights/${postSlug}`}
                   className="font-semibold text-[#05A7D4] group-hover:text-[#004771] inline-flex items-center gap-1 transition-colors"
                 >
                   Read <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </motion.article>
-          ))}
+            )
+          })}
         </div>
       </Container>
     </section>

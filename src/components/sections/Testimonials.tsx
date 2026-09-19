@@ -135,7 +135,7 @@ export function Testimonials({ heading }: TestimonialsProps) {
               key={t.id}
               initial={shouldReduce ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={shouldReduce ? false : { opacity: 0, y: -16 }}
+              exit={shouldReduce ? undefined : { opacity: 0, y: -16 }}
               transition={{ duration: 0.4 }}
               className="p-8 sm:p-12 lg:p-14 rounded-2xl bg-[#1F2937] border border-gray-800 shadow-2xl relative overflow-hidden"
             >

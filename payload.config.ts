@@ -3,6 +3,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import sharp from 'sharp'
 
 // Collections
 import { Users } from './src/payload/collections/Users'
@@ -39,6 +40,7 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  sharp,
   // Admin UI at /admin
   admin: {
     user: 'users',

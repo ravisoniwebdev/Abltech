@@ -16,6 +16,7 @@
     "@payloadcms/richtext-lexical": "^3.89.0",
     "@payloadcms/storage-vercel-blob": "^3.89.0",
     "@portabletext/react": "^7.0.1",
+    "@vercel/global-config": "^1.5.1",
     "clsx": "^2.1.1",
     "framer-motion": "^13.0.0",
     "lucide-react": "^1.31.0",
